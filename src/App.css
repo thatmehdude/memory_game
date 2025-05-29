@@ -1,0 +1,144 @@
+.memory-game-container {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.memory-game-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.memory-game-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.memory-game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 1.2rem;
+}
+
+.memory-game-moves {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.memory-game-congrats {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.memory-game-reset-button {
+  margin-top: 16px;
+  padding: 8px 24px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.memory-game-reset-button:hover {
+  background-color: #2563eb;
+}
+
+
+.memory-game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  max-width: 672px;
+  margin: 0 auto;
+}
+
+
+.memory-game-card {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.memory-game-card:hover {
+  transform: scale(1.05);
+}
+
+.memory-game-card-hidden {
+  background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+}
+
+.memory-game-card-hidden:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.memory-game-card-revealed {
+  background: white;
+}
+
+.memory-game-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.memory-game-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.memory-game-completion {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.memory-game-completion-text {
+  font-size: 1.25rem;
+  color: #374151;
+}
+
+.memory-game-completion-moves {
+  font-weight: bold;
+  color: #2563eb;
+}
+
+@media (max-width: 640px) {
+  .memory-game-container {
+    padding: 16px;
+  }
+  
+  .memory-game-title {
+    font-size: 1.5rem;
+  }
+  
+  .memory-game-stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .memory-game-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (min-width: 640px) {
+  .memory-game-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
