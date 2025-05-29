@@ -33,7 +33,7 @@ const MemoryGame = ({images}: MemoryGameProps) => {
         if (cards.length > 0 && cards.every(card => card.isMatched)) {
             setIsGameCOmplete(true)
         }
-    })
+    }, [cards])
 
     const initializeGame = () => {
         const cardPairs: CardProps[] = [];
