@@ -20,6 +20,12 @@ const MemoryGame = ({images}: MemoryGameProps) => {
         initializeGame()
     }, [images])
 
+    useEffect(() => {
+        if (flippedCards.length === 2) {
+            checkMatch();
+        }
+    }, [flippedCards]);
+
     const initializeGame = () => {
         const cardPairs: CardProps[] = [];
         images.forEach((image, index) => {
@@ -41,7 +47,20 @@ const MemoryGame = ({images}: MemoryGameProps) => {
         setCards(shuffledCards);
         setFlippedCards([]);
         setIsGameCOmplete(false);
-    } 
+    }
+
+    const handleCardClick = (cardId: string) => {
+        const card = cards.find(c => c.id === cardId);
+        if (!card || card.isFlipped || card.isMatched || flippedCards.length >= 2) {
+            return;
+        }
+
+        setCards(prevCards => 
+            prevCards.map(c =>
+                c.id === cardId ? {...c, isFlipped: true} : c
+            )
+        );
+    }
     return (
         <div></div>
     )
